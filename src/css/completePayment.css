@@ -1,0 +1,20 @@
+.completepayment{
+    text-align: center;
+    margin-top: 3cm;
+}
+  
+.message{
+    font-size: 25px;
+}
+  
+.completed{
+    font-size: 20px;
+}
+  
+.continuebrowsing{
+    width: 2.5cm;
+    height: 30px;
+    color: white;
+    background-color: #5a51c6;
+    border-radius: 4px;
+}

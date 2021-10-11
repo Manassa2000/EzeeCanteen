@@ -1,0 +1,53 @@
+.table__1{
+    width:95%;
+    margin:2%;
+    border: 2px solid #183454;
+    border-radius: 5px;
+    padding: 5px;
+}
+td{
+    height: 50px;
+    border: 1px solid #183454;
+    text-align: center;
+}
+thead{
+    font-weight: bold;
+    font-size: 20px;
+}
+.heading{
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+    color: #183454;
+}
+.dropdown{
+    margin-left: 20px;
+    height: 30px;
+    padding: 5px;
+    flex:1;
+}
+.menu{
+    background-color:#4498f8 ;
+    border: none;
+    color:white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom:10px ;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 184px;
+    margin-right: 40px;
+}
+.menu:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.row1{
+    display: flex;
+}

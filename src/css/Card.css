@@ -1,0 +1,118 @@
+/*.card>.card__image>img{
+    width:125px;
+    height: 125px;
+}*/
+/*.card{
+    display: flex;
+    
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-right: 20px;
+
+}
+.card__details>p{
+    padding: 0;
+    margin: 0;
+}
+.card__details{
+    padding-left: 20px;
+    flex:1;
+}
+.quantity{
+    justify-content: flex-end;
+}
+.span1{
+    padding-left: 5px;
+}
+
+.card__details>.heading{
+    font-size: 20px;
+    font-weight: bold;
+}
+.add{
+    background-color: white;
+    border: 1px solid black;
+    
+}
+
+.countminus{
+    background-color: white;
+    color: red!important;
+    border: 1px solid black;
+    
+}
+.countplus{
+    background-color: white;
+    color: red;
+   border: 1px solid black;
+    
+}
+.count{
+    background-color: white;
+    border: 1px solid black;
+}
+/*.btnGroup{
+    border: 1px solid black;
+}*/
+.card > .card__image > img {
+    width: 125px;
+    height: 125px;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  .card__details > p {
+    padding: 0;
+    margin: 0;
+  }
+  .foodsheading {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(27, 27, 58);
+  }
+  .card__details {
+    padding-left: 20px;
+    flex: 1;
+  }
+  .span1 {
+    padding-left: 5px;
+  }
+  
+  .card__details > .heading {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .countplus {
+    background-color: rgb(27, 27, 68);
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    color: white;
+  }
+  .countminus {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+  }
+  .count {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+  }
+  .add {
+    background-color: rgb(27, 27, 68);
+    width: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 35px;
+    border-radius: 8px;
+    color: white;
+  }

@@ -1,0 +1,271 @@
+.main{
+    display: flex;
+}
+.part1{
+    width: 65%;
+    border: 2px solid #183454;
+    border-radius: 5px;
+    margin:20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.part2{
+    border:2px solid #183454;
+    border-radius: 5px;
+    width: 35%;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.sub-part1{
+    display: inline-flex;
+}
+.Heading{
+    font-size: 35px;
+    color: #183454;
+    font-weight: bold;
+    padding: 10px;
+}
+.subheading{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+}
+img{
+    height: 90px;
+    align-items: center;
+    width: 90px
+}
+.card{
+    border: 1px solid lightgrey;
+    padding: 10px;
+    width: 510px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.sub1-part1{
+    background-color: #183454;
+    width: 250px;
+}
+.content{
+    padding: 10px;
+    padding-left: 20px;
+}
+.type{
+    font-weight: bold;
+    font-size: 20px;
+}
+a{
+    text-decoration: none;
+    color:blue;
+    font-weight: bold;
+}
+a:hover{
+    color:green;
+}
+.button{
+    background-color:#4498f8 ;
+    border: none;
+    color:white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom:5px ;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.SidebarList{
+    height: auto;
+    padding: 0;
+    width: 100%;
+}
+.SidebarList .row{
+    width: 100%;
+    height: 50px;
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.SidebarList .row:hover{
+    cursor: pointer;
+    background-color:#132a44 ;
+}
+.row #icon{
+    flex:30%;
+    display: grid;
+    place-items: center;
+}
+.row #title{
+    flex: 70%;
+}
+.SidebarList #active{
+    background-color: #132a44;
+}
+.time{
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 20%;
+}
+.back_button{
+    background-color:#183454 ;
+    border: none;
+    color:white;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom:5px ;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-left:20px;
+    margin-bottom: 20px;
+}
+
+.foodCardRow{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.foodCardRow .name{
+    flex: 50%;
+    place-items: center;
+    padding-left: 10px;
+}
+.foodCardRow .qty{
+    margin-left: 20px;
+    flex: 30%;
+    place-items: center;
+}
+.foodCardRow .price{
+    flex: 10%;
+    place-items: center;
+}
+.image{
+    padding-left: 10px;
+    width:100px;
+    height: 90px;
+}
+.heading1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.bill_details{
+    padding-left: 10px;
+    padding-right: 10px;
+    border:1px solid #183454;
+    margin: 5px;
+}
+.bill_details .heading1{
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+.bill_details .subheading1{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.bill_details .subheading1 .head{
+    flex:70%;
+    place-items: center;
+}
+.bill_details .subheading1 .price{
+    flex:30%;
+    place-items: center;
+}
+.bill_details .payment{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.bill_details .payment .head{
+    flex:70%;
+    place-items: center;
+}
+.bill_details .payment .price{
+    flex:30%;
+    place-items: center;
+}
+.countminus{
+    background-color: white;
+    color: red!important;
+    border: 1px solid black;
+    
+}
+.countplus{
+    background-color: white;
+    color: red;
+    border: 1px solid black;
+    
+}
+.count{
+    background-color: white;
+    border: 1px solid black;
+}
+.formContent{
+    border: 1px solid #183454;
+    padding: 5px;
+    margin-top:10px;
+    margin-left: 20px;
+}
+.formContent-date{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+.date-date{
+    width:49%;
+    margin-right: 10px;
+}
+.date-cvc{
+    width: 45%;
+}
+.accountInfo{
+    margin-top: 10px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #183454;
+    padding: 5px;   
+}
+.accountInfoSub{
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.accountInfoHeading{
+    font-weight: bold;
+   flex:70%;
+    display: grid;
+    place-items: start;
+}
+.accountInfoBody{
+    flex: 30%;
+    margin-bottom: 10px;
+}
+.cvcInput{
+    width: 40%;
+    margin-right: 10px;
+}

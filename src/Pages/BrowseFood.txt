@@ -1,0 +1,387 @@
+import React, {useEffect, useState} from 'react';
+import Header from './Header';
+import '../css/BrowseFood.css';
+import StarRatings from 'react-star-ratings';
+import Card from './Card';
+import Axios from 'axios';
+import { Link } from 'react-router-dom';
+
+function BrowseFood(props){
+        console.log(props.location.state);
+        console.log(props.location.state.fullName);
+        var fullName=props.location.state.fullName;
+        const[selectList,setSelectList]=useState([]);
+        var grandTotal=0;
+        
+        const [orderNo,setOrderNo]=useState(0);
+        useEffect(()=>{
+            Axios.get('http://localhost:3001/count').then((response)=>{
+                setOrderNo(response.data)
+            });
+        },[]);
+        console.log(orderNo);
+        
+        //console.log(orderNo[0].orderNo);
+        //var ord=orderNo[0].orderNo;
+        const [ord,setOrd]=useState(0);
+        //setOrd(orderNo[0].orderNo);
+        const set =()=>{
+            setOrd(orderNo[0].orderNo);
+            console.log(ord);
+        }
+        const handleQuery=(id,names,quantity,total,price,np)=>{
+            const newList=[...selectList];
+            newList[id] = [id,names,quantity,total,price,np];
+            console.log(id);
+            setSelectList(newList);
+            console.log(newList[id]);
+            set();
+        }
+        selectList.forEach(element => {
+            if(element===undefined){
+                console.log("nothing");
+            }
+            else{
+                if(element[5]==='p'){
+                    grandTotal=grandTotal+element[3];
+                    
+                    //console.log("TOtal is p "+grandTotal);
+                }
+               else if(element[5]==='n'){
+                   grandTotal=grandTotal-element[3];
+                   
+                   //console.log("Total is n "+grandTotal);
+               }
+            }
+        });
+        
+        console.log("Grand Total is"+grandTotal);
+        //console.log(selectList);
+
+        const [menuList,setMenuList]=useState([])
+        useEffect(()=>{
+            Axios.get('http://localhost:3001/api/get').then((response)=>{
+                setMenuList(response.data)
+            });
+        },[]);
+        const [users,setUsers]=useState([]);
+        useEffect(()=>{
+            Axios.get('http://localhost:3001/id').then((response)=>{
+                setUsers(response.data)
+            });
+        },[]);
+        console.log(users);
+        //const [userId,setUserId]=useState(0);
+        var num=0;
+        var userId;
+        users.forEach(element => {
+           if(element.fullname===fullName){
+               userId=element.id;
+               num=1;
+            }
+        });
+        const [id,setId]=useState(0);
+        /*if(num===0){
+            //useEffect(()=>{
+                Axios.get('http://localhost:3001/lastid').then((response)=>{
+                    setId(response.data);
+                });
+            //},[]);
+            console.log(id);
+        }*/
+
+        console.log(userId);
+        /*const [orderedList,setOrderedList]=useState([]);
+        useEffect(()=>{
+            Axios.get('http://localhost:3001/api/fetch').then((response)=>{
+                setOrderedList(response.data)
+            });
+        },[]);
+        var len=orderedList.length;
+        console.log(len);
+        console.log(orderedList);
+        console.log(orderedList[len-1].orderNo);
+        var orderno=orderedList[len-1].orderNo;*/
+
+        
+        return(
+            <div>
+                <Header />
+                
+                <div className="dropdown">
+                    <div className="dropdown__1">
+                        
+                        <select name="timings" id="timings">
+                            <option value="breakfast">Breakfast (8am-11:30am)</option>
+                            <option value="lunch">Lunch (12pm-3pm)</option>
+                            <option value="snacks">Snacks - All day</option>
+                        </select>
+                    </div>
+                    <div className="dropdown__2">
+                        <select name="store" id="store">
+                            <option value="shanti_sagar">Shanti Sagar</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="col">
+                    <div className="v1"></div>
+                    <div className="column2">
+                        <div style={{display:'flex',flexWrap:'wrap',alignItems:'baseline'}}>
+                            <h1 style={{paddingRight:'20px'}}>Shanti Sagar</h1>
+                            <StarRatings
+                                rating={3}
+                                starDimension="20px"
+                                starSpacing="2px"
+                                starRatedColor="#183454"
+                            />
+                        </div>
+                        <div>
+                            {menuList.map((val) =>{
+                               return(
+                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                    </div>
+                                )
+                            })}
+                            
+                        </div>
+                        {console.log(selectList.length)}
+                        {(()=>{
+                            if(selectList.length>0){
+                                return(
+                                    <div className="footer" style={{display:'flex', justifyContent:"end"}}>
+                                        <p id="total">SubTotal: Rs.{Math.abs(grandTotal)}</p>
+                                    <Link to={{
+                                        pathname:"/Payment",
+                                        state:{...selectList,fullName,ord,userId}
+                                    }}>
+                                    <button id="cont">Continue</button>
+                                </Link>
+                                </div>
+                                )
+                            }
+                        })()}
+                        {/*<Link to={{
+                            pathname:"/Payment",
+                            state:{...selectList,fullName,ord,userId}
+                        }}>
+                        <button>continue</button>
+                    </Link>*/}
+                   
+                    </div>
+                </div>
+                
+            </div>
+        )
+    
+}
+export default BrowseFood
+
+{(()=>{
+                            if(selectList.length>0){
+                                return(
+                                    <div className="footer" style={{display:'flex', justifyContent:"end"}}>
+                                        <p id="total">SubTotal: Rs.{Math.abs(grandTotal)}</p>
+                                    <Link to={{
+                                        pathname:"/Payment",
+                                        state:{...selectList,data,ord,userId,foodstate}
+                                    }}>
+                                    <button id="cont">Continue</button>
+                                </Link>
+                                </div>
+                                )
+                            }
+                        })()}
+
+
+
+
+                         {(()=>{
+                               if(dineOption==="breakfast"){
+                                    if(foodstate==="breakfast"){
+                                        return(
+                                            <div>
+                                            {menuList.map((val) =>{
+                                                {console.log(val.Name)}
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )
+                                    }
+                                    else if(foodstate==="snacks"){
+                                        console.log(foodstate+dineOption);
+                                        return(
+                                            <div>
+                                            {snackList.map((val) =>{
+                                                
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )
+                                        
+                                    }
+                                    else if(foodstate==="lunch"){
+                                        return(
+                                            <div>
+                                            {lunchList.map((val) =>{
+                                                //console.log(val.Cost);
+                                                //console.log(val.Name);
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )    
+                                    }
+                                }
+                               else if(dineOption==="snacks"){
+                                    if(foodstate==="breakfast" || dineOption==="breakfast"){
+                                        return(
+                                            <div>
+                                            {menuList.map((val) =>{
+                                                {console.log(val.Name)}
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )
+                                    }
+                                    else if(foodstate==="snacks"){
+                                        console.log(foodstate+dineOption);
+                                        return(
+                                            <div>
+                                            {snackList.map((val) =>{
+                                                
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )
+                                        
+                                    }
+                                    else if(foodstate==="lunch" || dineOption==="lunch"){
+                                        return(
+                                            <div>
+                                            {lunchList.map((val) =>{
+                                                //console.log(val.Cost);
+                                                //console.log(val.Name);
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )    
+                                    }
+                                }
+                               else if(dineOption==="lunch"){
+                                    if(foodstate==="breakfast"){
+                                        return(
+                                            <div>
+                                            {menuList.map((val) =>{
+                                                {console.log(val.Name)}
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )
+                                    }
+                                    else if(foodstate==="snacks"){
+                                        console.log(foodstate+dineOption);
+                                        return(
+                                            <div>
+                                            {snackList.map((val) =>{
+                                                
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )
+                                        
+                                    }
+                                    else if(foodstate==="lunch"){
+                                        return(
+                                            <div>
+                                            {lunchList.map((val) =>{
+                                                //console.log(val.Cost);
+                                                //console.log(val.Name);
+                                                return(
+                                                    <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                    <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+                                        )    
+                                    }
+                                }
+                                /*if(foodstate==="breakfast" || dineOption==="breakfast"){
+                                    return(
+                                        <div>
+                                        {menuList.map((val) =>{
+                                            {console.log(val.Name)}
+                                            return(
+                                                <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                </div>
+                                            )
+                                        })}
+                                        </div>
+                                    )
+                                }
+                                else if(foodstate==="snacks"){
+                                    console.log(foodstate+dineOption);
+                                    return(
+                                        <div>
+                                        {snackList.map((val) =>{
+                                            
+                                            return(
+                                                <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                </div>
+                                            )
+                                        })}
+                                        </div>
+                                    )
+                                    
+                                }
+                                else if(foodstate==="lunch" || dineOption==="lunch"){
+                                    return(
+                                        <div>
+                                        {lunchList.map((val) =>{
+                                            //console.log(val.Cost);
+                                            //console.log(val.Name);
+                                            return(
+                                                 <div style={{display:'flex', flexWrap:"wrap"}}>
+                                                 <Card id={val.id}image={val.image.data} price={val.Cost} names={val.Name} rating={val.Rating} votes={val.Votes} handleQuery={handleQuery}/>
+                                                 </div>
+                                             )
+                                        })}
+                                        </div>
+                                    )    
+                                }*/
+                                
+                            })()}

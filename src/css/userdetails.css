@@ -1,0 +1,36 @@
+.userimage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.usercontainer1 {
+  margin-top: 50px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.namediv {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  color: rgb(10, 10, 63);
+}
+.emaildiv {
+  font-style: italic;
+}
+.user {
+  height: 400px;
+  width: 800px;
+  border: 2px black;
+  margin-top: 50px;
+  text-align: center;
+  align-items: center;
+  border-style: none;
+  justify-content: center;
+  background-image: linear-gradient(
+    45deg,
+    rgb(199, 238, 250),
+    rgb(127, 148, 187)
+  );
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgb(139, 139, 139);
+}

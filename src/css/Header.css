@@ -1,0 +1,132 @@
+/*.header1{
+    background-color: #183454;
+    display:flex;
+    align-items: center;
+    height: 70px;
+}
+.header__first{
+    padding: 5px;
+    flex: 1;
+}
+.header__first>img{
+    width:200px;
+   object-fit:contain;
+}
+.header__second{
+    align-items: center;
+    padding-right: 20px;
+    color:white;
+    display: flex;
+}
+.header__second>.MuiSvgIcon-root{
+    color: white;
+}
+.header__third{
+    align-items: center;
+    padding-right: 20px;
+}
+.header__third>.MuiSvgIcon-root{
+    color: white;
+}
+.header__secondOne{
+    color: white;
+}*/
+ .header1 {
+  background-color: #183454;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0;
+ 
+}
+.header__first {
+  padding-left: 20px;
+  flex: 1;
+}
+.header__first > img {
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
+  object-position: left;
+}
+.headerdrop {
+  background-color: transparent;
+  border: none;
+
+  margin-right: 50px;
+}
+
+.headerdrop:onclick {
+  background-color: transparent;
+  border: none;
+}
+.headericondiv {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 60px;
+}
+.ICONhead {
+  color: white;
+}
+.header__second {
+  align-items: center;
+
+  color: white;
+  width: 20px;
+  display: flex;
+}
+.header__second1 {
+  align-items: center;
+  margin-left: 30px;
+  color: white;
+  width: 20px;
+  display: flex;
+}
+.header__second > .MuiSvgIcon-root {
+  color: white;
+}
+.header__third {
+  margin-right: 30px;
+}
+.Logout,
+.Logout:hover,
+.Logout:active,
+.Logout:focus {
+  color: aliceblue;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.dropdownMenu{
+  position: absolute;
+  border:1px solid black;
+  margin-top:80px;
+  padding: 5px;
+  background-color: white;
+}
+.dropdownMenu >ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdownMenu >li{
+  padding: 8px 12px;
+}
+.details{
+  border:1px solid #183454;
+  position:absolute;
+  background-color: white;
+  width: 300px;
+  margin-left: 800px;
+  margin-top: 0px;
+  align-content: center;
+}
+.headerUser{
+ 
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+.buttonClose{
+align-content: end;
+}
