@@ -33,20 +33,7 @@ const Header=({loginDetails,loginEmail,number,onNumberChange})=>{
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  {/*var { isLoaded, fullName, email } = this.state;
-  const LoginEmail = this.props.loginEmail
-
-  var fullname = '';
-        if (loginDetails && loginDetails.fullname) {
-            if (loginDetails.fullname.length > 6) {
-                fullname = loginDetails.fullname.substring(0, 8) + '...';
-                email = LoginEmail.email
-            }
-            else {
-                fullname = loginDetails.fullname;
-                email = LoginEmail.email
-            }
-        }*/}
+  
     return(
         <div>
             <div className="header1">
